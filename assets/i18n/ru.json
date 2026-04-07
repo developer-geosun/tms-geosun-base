@@ -34,8 +34,13 @@
     "russian": "Русский"
   },
   "settings": {
+    "buttonLabel": "Настройки",
     "languageSection": "Язык",
     "themeSection": "Тема"
+  },
+  "auth": {
+    "register": "Регистрация",
+    "login": "Войти"
   }
 }
 
