@@ -39,10 +39,11 @@ app-social-icon {
 .spacer {
   flex: 1 1 auto;
   min-width: 8px;
-  order: 3;
+  order: 2;
 }
 
 .settings-button {
+  order: 3;
   width: 36px;
   height: 36px;
   border: 1px solid currentColor;
@@ -67,6 +68,9 @@ a.company-site-button.mat-mdc-icon-button {
   height: 28px !important;
   min-width: 28px !important;
   min-height: 28px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   padding: 0 !important;
   margin: 0;
   border-radius: 50%;
@@ -77,10 +81,14 @@ a.company-site-button.mat-mdc-icon-button {
 }
 
 a.company-site-button .mat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 14px !important;
   height: 14px !important;
   font-size: 14px !important;
   line-height: 14px !important;
+  margin: 0 !important;
 }
 
 a.company-site-button:hover,
@@ -124,8 +132,36 @@ a.company-site-button:active {
   flex: 1 1 0;
   font-size: 12px;
   font-weight: 700;
+  line-height: 28px;
   min-width: 34px;
   height: 28px;
+}
+
+.settings-menu-content mat-button-toggle ::ng-deep .mat-button-toggle-label-content {
+  display: block;
+  line-height: 28px;
+  padding: 0 8px;
+  width: 100%;
+  height: 28px;
+  text-align: center;
+}
+
+.settings-menu-content mat-button-toggle ::ng-deep .mat-button-toggle-button,
+.settings-menu-content mat-button-toggle ::ng-deep .mat-mdc-button-toggle-button {
+  height: 100%;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.settings-menu-content mat-button-toggle ::ng-deep .mdc-button__label {
+  display: block;
+  width: 100%;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
 }
 
 .settings-menu-content mat-button-toggle ::ng-deep .mat-button-toggle-checkbox-wrapper {
