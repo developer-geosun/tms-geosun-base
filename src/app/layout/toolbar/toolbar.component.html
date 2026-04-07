@@ -8,8 +8,8 @@
         [href]="configService.logoUrl"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Сайт компанії"
-        title="Сайт компанії">
+        aria-label="World Wide Web"
+        title="World Wide Web">
         <mat-icon>public</mat-icon>
       </a>
       <app-social-icon type="telegram" [url]="configService.telegramUrl"></app-social-icon>
@@ -46,17 +46,22 @@
     </mat-button-toggle-group>
 
     <div class="settings-menu-section-title">{{ getThemeSectionTitle() }}</div>
-    <ng-container *ngIf="theme$ | async as currentTheme">
+    <div class="theme-options" role="radiogroup" aria-label="Вибір теми">
       <button
-        mat-button
+        *ngFor="let theme of themes"
         type="button"
-        class="theme-button"
-        (click)="toggleTheme()"
-        [attr.aria-label]="getThemeLabel(currentTheme)"
-        [title]="getThemeTitle(currentTheme)">
-        <mat-icon>{{ getThemeIcon(currentTheme) }}</mat-icon>
+        class="theme-option"
+        [class.selected]="currentTheme === theme.code"
+        role="radio"
+        [attr.aria-checked]="currentTheme === theme.code"
+        (click)="changeTheme(theme.code)">
+        <mat-icon class="theme-option-radio" aria-hidden="true">
+          {{ currentTheme === theme.code ? 'radio_button_checked' : 'radio_button_unchecked' }}
+        </mat-icon>
+        <span class="theme-option-label">{{ theme.label }}</span>
+        <span class="theme-option-preview" [ngClass]="'theme-preview--' + theme.code" aria-hidden="true"></span>
       </button>
-    </ng-container>
+    </div>
   </div>
 </mat-menu>
 

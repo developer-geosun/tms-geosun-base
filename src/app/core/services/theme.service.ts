@@ -1,21 +1,27 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-export type Theme = 'light' | 'dark';
+export type Theme = 'rose-red' | 'azure-blue' | 'magenta-violet' | 'cyan-orange';
 
 /**
- * Сервіс для управління темою додатку (світла/темна)
+ * Сервіс для управління кольоровою темою додатку
  */
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
   private readonly THEME_KEY = 'app-theme';
+  private readonly THEME_CLASSES = [
+    'theme-rose-red',
+    'theme-azure-blue',
+    'theme-magenta-violet',
+    'theme-cyan-orange'
+  ];
   private themeSubject: BehaviorSubject<Theme>;
   public theme$: Observable<Theme>;
 
   constructor() {
-    // Отримуємо збережену тему або використовуємо світлу за замовчуванням
+    // Отримуємо збережену тему або використовуємо базову за замовчуванням
     const savedTheme = this.getSavedTheme();
     this.themeSubject = new BehaviorSubject<Theme>(savedTheme);
     this.theme$ = this.themeSubject.asObservable();
@@ -27,14 +33,6 @@ export class ThemeService {
    */
   get currentTheme(): Theme {
     return this.themeSubject.value;
-  }
-
-  /**
-   * Перемикає тему між світлою та темною
-   */
-  toggleTheme(): void {
-    const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
-    this.setTheme(newTheme);
   }
 
   /**
@@ -51,13 +49,8 @@ export class ThemeService {
    */
   private applyTheme(theme: Theme): void {
     const body = document.body;
-    if (theme === 'dark') {
-      body.classList.add('dark-theme');
-      body.classList.remove('light-theme');
-    } else {
-      body.classList.add('light-theme');
-      body.classList.remove('dark-theme');
-    }
+    body.classList.remove(...this.THEME_CLASSES, 'light-theme', 'dark-theme');
+    body.classList.add(`theme-${theme}`);
   }
 
   /**
@@ -65,7 +58,16 @@ export class ThemeService {
    */
   private getSavedTheme(): Theme {
     const saved = localStorage.getItem(this.THEME_KEY);
-    return (saved === 'dark' || saved === 'light') ? saved : 'light';
+    if (saved === 'rose-red' || saved === 'azure-blue' || saved === 'magenta-violet' || saved === 'cyan-orange') {
+      return saved;
+    }
+
+    // Зворотна сумісність зі старими значеннями світлої/темної теми
+    if (saved === 'light' || saved === 'dark') {
+      return 'azure-blue';
+    }
+
+    return 'azure-blue';
   }
 
   /**

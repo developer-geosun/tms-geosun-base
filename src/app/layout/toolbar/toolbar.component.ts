@@ -19,12 +19,20 @@ export class ToolbarComponent {
   theme$ = this.themeService.theme$;
   language$ = this.languageService.language$;
   currentLanguage: Language = 'uk';
+  currentTheme: Theme = 'azure-blue';
   
   // Доступні мови
   languages: { code: Language; label: string }[] = [
     { code: 'uk', label: 'UA' },
     { code: 'en', label: 'EN' },
     { code: 'ru', label: 'RU' }
+  ];
+
+  themes: { code: Theme; label: string }[] = [
+    { code: 'azure-blue', label: 'Azure & Blue' },
+    { code: 'rose-red', label: 'Rose & Red' },
+    { code: 'magenta-violet', label: 'Magenta & Violet' },
+    { code: 'cyan-orange', label: 'Cyan & Orange' }
   ];
 
   constructor(
@@ -37,40 +45,17 @@ export class ToolbarComponent {
     this.language$.subscribe(lang => {
       this.currentLanguage = lang;
     });
+
+    this.theme$.subscribe(theme => {
+      this.currentTheme = theme;
+    });
   }
 
   /**
-   * Перемикає тему
+   * Змінює тему інтерфейсу
    */
-  toggleTheme(): void {
-    this.themeService.toggleTheme();
-  }
-
-  /**
-   * Отримує поточну тему для aria-label
-   */
-  getThemeLabel(theme: Theme | null): string {
-    if (theme === 'light') {
-      return this.translateService.instant('theme.switchToDark');
-    }
-    return this.translateService.instant('theme.switchToLight');
-  }
-
-  /**
-   * Отримує заголовок для кнопки теми
-   */
-  getThemeTitle(theme: Theme | null): string {
-    if (theme === 'light') {
-      return this.translateService.instant('theme.darkTheme');
-    }
-    return this.translateService.instant('theme.lightTheme');
-  }
-
-  /**
-   * Отримує іконку для кнопки теми
-   */
-  getThemeIcon(theme: Theme | null): string {
-    return theme === 'light' ? 'dark_mode' : 'light_mode';
+  changeTheme(theme: Theme): void {
+    this.themeService.setTheme(theme);
   }
 
   /**

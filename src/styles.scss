@@ -5,20 +5,57 @@
 html, body { height: 100%; }
 body { 
   margin: 0; 
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Inter, Roboto, "Helvetica Neue", sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-// Стили для светлой темы
-.light-theme {
-  background-color: #fafafa;
-  color: #000000;
+// Базові кольори поверхні для світлих тем
+.theme-rose-red {
+  background-color: #ffffff;
+  color: #5d2842;
 }
 
-// Стили для темной темы
-.dark-theme {
-  background-color: #303030;
-  color: #ffffff;
+.theme-rose-red .mat-toolbar {
+  background-color: #e3c3cf;
+  color: #6f004a;
+}
+
+.theme-azure-blue {
+  background-color: #ffffff;
+  color: #20486d;
+}
+
+.theme-azure-blue .mat-toolbar {
+  background-color: #c6d1e8;
+  color: #0f467d;
+}
+
+// Базові кольори поверхні для темних тем
+.theme-magenta-violet,
+.theme-cyan-orange {
+  color-scheme: dark;
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+.theme-magenta-violet {
+  background-color: #140e17;
+  color: #f4e9f6;
+}
+
+.theme-magenta-violet .mat-toolbar {
+  background-color: #8d049d;
+  color: #f5e8f7;
+}
+
+.theme-cyan-orange {
+  background-color: #071015;
+  color: #def8f8;
+}
+
+.theme-cyan-orange .mat-toolbar {
+  background-color: #075f61;
+  color: #35f0ee;
 }
 
 // Стили для выбранных кнопок языков
@@ -52,6 +89,34 @@ mat-button-toggle.ru-button.mat-button-toggle-checked {
   .mat-button-toggle-label-content {
     background-color: #FF0000 !important;
     color: #FFFFFF !important;
+  }
+}
+
+mat-button-toggle.ua-button:not(.mat-button-toggle-checked),
+mat-button-toggle.en-button:not(.mat-button-toggle-checked),
+mat-button-toggle.ru-button:not(.mat-button-toggle-checked) {
+  background-color: #e6e6e6 !important;
+  color: #333333 !important;
+
+  .mat-button-toggle-button,
+  .mat-button-toggle-label-content,
+  .mat-mdc-button-toggle-button,
+  .mdc-button__label {
+    background-color: #e6e6e6 !important;
+    color: #333333 !important;
+  }
+}
+
+mat-button-toggle.ua-button:not(.mat-button-toggle-checked):hover,
+mat-button-toggle.en-button:not(.mat-button-toggle-checked):hover,
+mat-button-toggle.ru-button:not(.mat-button-toggle-checked):hover {
+  background-color: #d2d2d2 !important;
+
+  .mat-button-toggle-button,
+  .mat-button-toggle-label-content,
+  .mat-mdc-button-toggle-button,
+  .mdc-button__label {
+    background-color: #d2d2d2 !important;
   }
 }
 

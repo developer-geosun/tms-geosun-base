@@ -39,8 +39,9 @@
   }
 }
 
-// Стилі для світлої теми
-:host-context(.light-theme) {
+// Стилі для світлих кольорових тем
+:host-context(.theme-rose-red),
+:host-context(.theme-azure-blue) {
   .app-footer {
     background-color: #e0e0e0; // Світло-сірий відтінок
     color: #424242;
@@ -57,6 +58,30 @@
 
       svg {
         fill: #ffffff !important;
+      }
+    }
+  }
+}
+
+// Стилі для темних кольорових тем
+:host-context(.theme-magenta-violet),
+:host-context(.theme-cyan-orange) {
+  .app-footer {
+    background-color: #1f1f1f;
+    color: #f1f1f1;
+  }
+
+  app-social-icon {
+    --background-color: #2b2b2b;
+    color: #f1f1f1;
+  }
+
+  app-social-icon:hover {
+    ::ng-deep {
+      color: #121212 !important;
+
+      svg {
+        fill: #121212 !important;
       }
     }
   }

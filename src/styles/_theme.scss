@@ -1,37 +1,70 @@
 @use '@angular/material' as mat;
 
-// Використовуємо M2 API з префіксом m2- для Angular Material 18
-// Світла тема
-$light-primary: mat.m2-define-palette(mat.$m2-indigo-palette);
-$light-accent: mat.m2-define-palette(mat.$m2-pink-palette, A200, A100, A400);
-$light-warn: mat.m2-define-palette(mat.$m2-red-palette);
+// Використовуємо M2 API з префіксом m2- для Angular Material
 
-$light-theme: mat.m2-define-light-theme((
+// Базова тема за замовчуванням: Azure & Blue
+$azure-blue-primary: mat.m2-define-palette(mat.$m2-light-blue-palette);
+$azure-blue-accent: mat.m2-define-palette(mat.$m2-blue-palette, A200, A100, A400);
+$azure-blue-warn: mat.m2-define-palette(mat.$m2-red-palette);
+$azure-blue-theme: mat.m2-define-light-theme((
   color: (
-    primary: $light-primary,
-    accent: $light-accent,
-    warn: $light-warn,
+    primary: $azure-blue-primary,
+    accent: $azure-blue-accent,
+    warn: $azure-blue-warn,
   )
 ));
 
-// Темна тема
-$dark-primary: mat.m2-define-palette(mat.$m2-indigo-palette);
-$dark-accent: mat.m2-define-palette(mat.$m2-pink-palette, A200, A100, A400);
-$dark-warn: mat.m2-define-palette(mat.$m2-red-palette);
+@include mat.all-component-themes($azure-blue-theme);
 
-$dark-theme: mat.m2-define-dark-theme((
+// Rose & Red
+$rose-red-primary: mat.m2-define-palette(mat.$m2-pink-palette, 800, 300, 900);
+$rose-red-accent: mat.m2-define-palette(mat.$m2-red-palette, 200, 100, 400);
+$rose-red-warn: mat.m2-define-palette(mat.$m2-deep-orange-palette);
+$rose-red-theme: mat.m2-define-light-theme((
   color: (
-    primary: $dark-primary,
-    accent: $dark-accent,
-    warn: $dark-warn,
+    primary: $rose-red-primary,
+    accent: $rose-red-accent,
+    warn: $rose-red-warn,
   )
 ));
 
-// Застосування світлої теми за замовчуванням
-@include mat.all-component-themes($light-theme);
+// Magenta & Violet
+$magenta-violet-primary: mat.m2-define-palette(mat.$m2-purple-palette);
+$magenta-violet-accent: mat.m2-define-palette(mat.$m2-deep-purple-palette, A200, A100, A400);
+$magenta-violet-warn: mat.m2-define-palette(mat.$m2-red-palette);
+$magenta-violet-theme: mat.m2-define-dark-theme((
+  color: (
+    primary: $magenta-violet-primary,
+    accent: $magenta-violet-accent,
+    warn: $magenta-violet-warn,
+  )
+));
 
-// Застосування темної теми при наявності класу dark-theme
-.dark-theme {
-  @include mat.all-component-colors($dark-theme);
+// Cyan & Orange
+$cyan-orange-primary: mat.m2-define-palette(mat.$m2-cyan-palette);
+$cyan-orange-accent: mat.m2-define-palette(mat.$m2-orange-palette, A200, A100, A400);
+$cyan-orange-warn: mat.m2-define-palette(mat.$m2-deep-orange-palette);
+$cyan-orange-theme: mat.m2-define-dark-theme((
+  color: (
+    primary: $cyan-orange-primary,
+    accent: $cyan-orange-accent,
+    warn: $cyan-orange-warn,
+  )
+));
+
+.theme-rose-red {
+  @include mat.all-component-colors($rose-red-theme);
+}
+
+.theme-azure-blue {
+  @include mat.all-component-colors($azure-blue-theme);
+}
+
+.theme-magenta-violet {
+  @include mat.all-component-colors($magenta-violet-theme);
+}
+
+.theme-cyan-orange {
+  @include mat.all-component-colors($cyan-orange-theme);
 }
 
