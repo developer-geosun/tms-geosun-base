@@ -1,57 +1,75 @@
-# ServicesRouteCalculationAngularTemp
+# tms-geosun-base
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+Angular 21 application for GeoSun transport management scenarios.
 
-## Development server
+## Tech stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular `21.2.x`
+- Angular Material/CDK `21.2.x`
+- TypeScript `5.9.x`
+- i18n: `@ngx-translate/core` + `@ngx-translate/http-loader`
 
-## Code scaffolding
+## Requirements
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Node.js `>=20`
+- npm `>=10`
+
+## Getting started
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run dev server:
+
+```bash
+npm start
+```
+
+Application is available at `http://localhost:4200/`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Production build:
 
-## Running unit tests
+```bash
+npm run build
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Artifacts are generated in `dist/tms-geosun-base`.
 
-## Running end-to-end tests
+## Tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Unit tests are temporarily disabled in `package.json` (`npm test` returns a placeholder message).
+
+To restore Karma tests, set script `test` back to:
+
+```bash
+ng test
+```
 
 ## Deployment
 
-This project is automatically deployed to GitHub Pages via GitHub Actions.
+### GitHub Actions
 
-### Настройка автоматического деплоя
+Deployment is configured via `.github/workflows/deploy.yml` and runs on push to `main` or `master`.
 
-1. **Настройте GitHub Pages в текущем репозитории:**
-   - Перейдите в Settings → Pages
-   - Source: выберите "Deploy from a branch"
-   - Branch: выберите `gh-pages` и папку `/ (root)`
-   - Нажмите "Save"
+### Manual deploy to GitHub Pages
 
-2. **Настройте права доступа для GitHub Actions:**
-   - Перейдите в Settings → Actions → General
-   - В разделе "Workflow permissions" выберите "Read and write permissions"
-   - Убедитесь, что включен "Allow GitHub Actions to create and approve pull requests"
-   - Нажмите "Save"
-
-3. **Активация деплоя:**
-   - Workflow автоматически запустится при push в ветку `main` или `master`
-   - Также можно запустить вручную через Actions → "Deploy to GitHub Pages" → "Run workflow"
-   - Приложение будет доступно на GitHub Pages после первого успешного деплоя
-
-### Ручной деплой
-
-Для ручного деплоя используйте команду:
 ```bash
 npm run deploy
 ```
 
-## Further help
+The deploy command uses:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- base href: `/tms-geosun-base/`
+- output directory: `dist/tms-geosun-base`
+
+## Useful commands
+
+```bash
+npm run watch
+npm run ng -- version
+```
