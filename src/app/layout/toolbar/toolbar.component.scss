@@ -1,329 +1,102 @@
 mat-toolbar {
-  padding: 0.5rem !important;
+  padding: .5rem !important;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 6px;
-  box-sizing: border-box;
   height: auto !important;
   min-height: auto !important;
-
-  .logo-icons-group {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    order: 1;
-  }
-
-  .logo-hover-icons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 0;
-    margin: -6px 0;
-    max-width: 0;
-    opacity: 0;
-    transform: translateX(-14px);
-    overflow: hidden;
-    pointer-events: none;
-    transition: max-width 0.35s ease, opacity 0.25s ease, transform 0.3s ease;
-  }
-
-  app-logo {
-    flex-shrink: 0;
-    padding: 0;
-    margin-right: 0;
-    margin-left: 0;
-    box-sizing: border-box;
-  }
-
-  app-social-icon {
-    flex-shrink: 0;
-    margin: 0;
-  }
-
-  .spacer {
-    flex: 1 1 auto;
-    min-width: 8px;
-    order: 3;
-  }
-
-  mat-button-toggle-group {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    order: 4;
-
-    mat-button-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      font-weight: bold;
-      padding: 2px 4px;
-      min-width: 24px;
-      height: 22px;
-      line-height: 1;
-
-      // Приховуємо галочку при виборі
-      ::ng-deep {
-        .mat-button-toggle-label-content,
-        .mat-button-toggle-button {
-          mat-icon {
-            display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-            width: 0 !important;
-            height: 0 !important;
-          }
-        }
-        
-        mat-icon {
-          display: none !important;
-          visibility: hidden !important;
-        }
-      }
-    }
-  }
-
-  button[mat-icon-button] {
-    flex-shrink: 0;
-    order: 5;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-
-    mat-icon {
-      font-size: 20px;
-      width: 20px;
-      height: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  .settings-button {
-    border: 1px solid currentColor;
-    border-radius: 50%;
-    opacity: 0.92;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-
-    &:hover {
-      transform: rotate(20deg);
-      opacity: 1;
-    }
-  }
-
-  a.company-site-button.mat-mdc-icon-button {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 28px !important;
-    height: 28px !important;
-    min-width: 28px !important;
-    min-height: 28px !important;
-    padding: 0 !important;
-    margin: 0;
-    border-radius: 50%;
-    background-color: var(--background-color, #f8f9fa);
-    color: #495057;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: currentColor;
-      opacity: 0.1;
-      transform: translate(-50%, -50%);
-      transition: width 0.3s ease, height 0.3s ease;
-    }
-
-    &:hover {
-      transform: translateY(-2px) scale(1.1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      background-color: var(--hover-color, #006fa6);
-      color: white;
-
-      &::before {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    &:focus-visible {
-      background-color: var(--hover-color, #006fa6);
-      color: white;
-    }
-
-    &:active {
-      transform: translateY(0) scale(1.05);
-    }
-
-    .mat-icon {
-      display: block !important;
-      width: 14px !important;
-      height: 14px !important;
-      font-size: 14px !important;
-      line-height: 14px !important;
-      z-index: 1;
-      transition: transform 0.25s ease;
-    }
-
-    &:hover .mat-icon {
-      transform: scale(1.1);
-    }
-  }
 }
 
-// Планшеты (от 600px)
-@media (min-width: 600px) {
-    mat-toolbar {
-    padding: 0.5rem !important;
-    flex-wrap: nowrap;
-    gap: 8px;
-    min-height: 64px !important;
-    height: auto !important;
-
-    app-logo {
-      margin-right: 0;
-      margin-left: 0;
-      padding: 0;
-    }
-
-    app-social-icon {
-      margin: 0;
-    }
-
-    .spacer {
-      order: 3;
-    }
-
-    mat-button-toggle-group {
-      margin-left: 8px;
-      order: 4;
-
-      mat-button-toggle {
-        font-size: 12px;
-        font-weight: bold;
-        padding: 4px 6px;
-        min-width: 36px;
-        height: 28px;
-
-        // Приховуємо галочку при виборі
-        ::ng-deep {
-          .mat-button-toggle-label-content,
-          .mat-button-toggle-button {
-            mat-icon {
-              display: none !important;
-              visibility: hidden !important;
-              opacity: 0 !important;
-              width: 0 !important;
-              height: 0 !important;
-            }
-          }
-          
-          mat-icon {
-            display: none !important;
-            visibility: hidden !important;
-          }
-        }
-      }
-    }
-
-    button[mat-icon-button] {
-      margin-left: 8px;
-      order: 5;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      line-height: 1;
-
-      mat-icon {
-        font-size: 24px;
-        width: 24px;
-        height: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-
-    a.company-site-button.mat-mdc-icon-button {
-      display: flex;
-      align-items: center !important;
-      justify-content: center !important;
-      width: 28px !important;
-      height: 28px !important;
-      min-width: 28px !important;
-      min-height: 28px !important;
-      padding: 0 !important;
-
-      .mat-icon {
-        display: block !important;
-        width: 14px !important;
-        height: 14px !important;
-        font-size: 14px !important;
-        line-height: 14px !important;
-      }
-    }
-
-    .logo-icons-group:hover .logo-hover-icons,
-    .logo-icons-group:focus-within .logo-hover-icons {
-      max-width: 260px;
-      opacity: 1;
-      transform: translateX(0);
-      pointer-events: auto;
-    }
-  }
+.logo-icons-group,
+.logo-hover-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-// Десктоп (от 960px)
-@media (min-width: 960px) {
-  mat-toolbar {
-    padding: 0.5rem !important;
-    gap: 8px;
-    min-height: 64px !important;
-    height: auto !important;
-
-    app-logo {
-      margin-right: 0;
-      margin-left: 0;
-      padding: 0;
-    }
-
-    app-social-icon {
-      margin: 0;
-    }
-
-    mat-button-toggle-group {
-      margin-left: 10px;
-    }
-
-    button[mat-icon-button] {
-      margin-left: 10px;
-    }
-  }
+.logo-icons-group {
+  order: 1;
 }
 
-.settings-menu-panel {
-  .mat-mdc-menu-content {
-    padding: 0 !important;
-  }
+.logo-hover-icons {
+  padding: 6px 0;
+  margin: -6px 0;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateX(-14px);
+  transition: max-width .35s ease, opacity .25s ease, transform .3s ease;
+}
+
+app-logo,
+app-social-icon {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.spacer {
+  flex: 1 1 auto;
+  min-width: 8px;
+  order: 3;
+}
+
+.settings-button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: .92;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.settings-button mat-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.settings-button:hover {
+  transform: rotate(20deg);
+  opacity: 1;
+}
+
+a.company-site-button.mat-mdc-icon-button {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  padding: 0 !important;
+  margin: 0;
+  border-radius: 50%;
+  background: var(--background-color, #f8f9fa);
+  color: #495057;
+  text-decoration: none;
+  transition: all .25s cubic-bezier(.4, 0, .2, 1);
+}
+
+a.company-site-button .mat-icon {
+  width: 14px !important;
+  height: 14px !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+}
+
+a.company-site-button:hover,
+a.company-site-button:focus-visible {
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+  background: var(--hover-color, #006fa6);
+  color: #fff;
+}
+
+a.company-site-button:active {
+  transform: translateY(0) scale(1.05);
+}
+
+.settings-menu-panel .mat-mdc-menu-content {
+  padding: 0 !important;
 }
 
 .settings-menu-content {
@@ -337,12 +110,11 @@ mat-toolbar {
 .settings-menu-section-title {
   font-size: 12px;
   font-weight: 600;
-  opacity: 0.8;
+  opacity: .8;
 }
 
 .settings-menu-content mat-button-toggle-group {
   display: flex;
-  align-items: center;
   width: 100%;
   border: 0 !important;
   box-shadow: none !important;
@@ -350,33 +122,34 @@ mat-toolbar {
 
 .settings-menu-content mat-button-toggle {
   flex: 1 1 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 12px;
-  font-weight: bold;
-  padding: 2px 4px;
+  font-weight: 700;
   min-width: 34px;
   height: 28px;
-  line-height: 1;
+}
 
-  // Приховуємо галочку при виборі
-  ::ng-deep {
-    .mat-button-toggle-label-content,
-    .mat-button-toggle-button {
-      mat-icon {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        width: 0 !important;
-        height: 0 !important;
-      }
-    }
-  }
+.settings-menu-content mat-button-toggle ::ng-deep .mat-button-toggle-checkbox-wrapper {
+  display: none !important;
 }
 
 .theme-button {
   width: 100%;
   justify-content: center;
+}
+
+@media (min-width: 600px) {
+  mat-toolbar {
+    flex-wrap: nowrap;
+    gap: 8px;
+    min-height: 64px !important;
+  }
+
+  .logo-icons-group:hover .logo-hover-icons,
+  .logo-icons-group:focus-within .logo-hover-icons {
+    max-width: 260px;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
 }
 
