@@ -79,5 +79,43 @@ export class ToolbarComponent {
   changeLanguage(language: Language): void {
     this.languageService.setLanguage(language);
   }
+
+  /**
+   * Отримує локалізовану назву секції мови у меню налаштувань
+   */
+  getLanguageSectionTitle(): string {
+    return this.getSettingsSectionTitle('settings.languageSection');
+  }
+
+  /**
+   * Отримує локалізовану назву секції теми у меню налаштувань
+   */
+  getThemeSectionTitle(): string {
+    return this.getSettingsSectionTitle('settings.themeSection');
+  }
+
+  private getSettingsSectionTitle(key: 'settings.languageSection' | 'settings.themeSection'): string {
+    const translated = this.translateService.instant(key);
+    if (translated !== key) {
+      return translated;
+    }
+
+    const fallbackByLanguage: Record<Language, Record<'settings.languageSection' | 'settings.themeSection', string>> = {
+      uk: {
+        'settings.languageSection': 'Мова',
+        'settings.themeSection': 'Тема'
+      },
+      en: {
+        'settings.languageSection': 'Language',
+        'settings.themeSection': 'Theme'
+      },
+      ru: {
+        'settings.languageSection': 'Язык',
+        'settings.themeSection': 'Тема'
+      }
+    };
+
+    return fallbackByLanguage[this.currentLanguage][key];
+  }
 }
 

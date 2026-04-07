@@ -1,33 +1,63 @@
 <mat-toolbar color="primary">
-  <app-logo></app-logo>
-  <app-social-icon type="telegram" [url]="configService.telegramUrl"></app-social-icon>
-  <app-social-icon type="whatsapp" [url]="configService.whatsAppUrl"></app-social-icon>
-  <app-social-icon type="viber" [url]="configService.viberUrl"></app-social-icon>
-  <app-social-icon type="facebook" [url]="configService.facebookUrl"></app-social-icon>
+  <div class="logo-icons-group">
+    <app-logo></app-logo>
+    <div class="logo-hover-icons">
+      <a
+        mat-icon-button
+        class="company-site-button"
+        [href]="configService.logoUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Сайт компанії"
+        title="Сайт компанії">
+        <mat-icon>public</mat-icon>
+      </a>
+      <app-social-icon type="telegram" [url]="configService.telegramUrl"></app-social-icon>
+      <app-social-icon type="whatsapp" [url]="configService.whatsAppUrl"></app-social-icon>
+      <app-social-icon type="viber" [url]="configService.viberUrl"></app-social-icon>
+      <app-social-icon type="facebook" [url]="configService.facebookUrl"></app-social-icon>
+    </div>
+  </div>
   
   <span></span>
   <span class="spacer"></span>
-  
-  <!-- Переключатель языка -->
-  <mat-button-toggle-group 
-    [value]="currentLanguage" 
-    (change)="changeLanguage($event.value)"
-    [hideSingleSelectionIndicator]="true"
-    aria-label="Вибір мови">
-    <mat-button-toggle *ngFor="let lang of languages" [value]="lang.code" [class.ua-button]="lang.code === 'uk'" [class.en-button]="lang.code === 'en'" [class.ru-button]="lang.code === 'ru'">
-      {{ lang.label }}
-    </mat-button-toggle>
-  </mat-button-toggle-group>
-  
-  <!-- Переключатель темы -->
-  <ng-container *ngIf="theme$ | async as currentTheme">
-    <button 
-      mat-icon-button 
-      (click)="toggleTheme()" 
-      [attr.aria-label]="getThemeLabel(currentTheme)"
-      [title]="getThemeTitle(currentTheme)">
-      <mat-icon>{{ getThemeIcon(currentTheme) }}</mat-icon>
-    </button>
-  </ng-container>
+
+  <button
+    mat-icon-button
+    class="settings-button"
+    type="button"
+    [matMenuTriggerFor]="settingsMenu"
+    aria-label="Налаштування"
+    title="Налаштування">
+    <mat-icon>settings</mat-icon>
+  </button>
 </mat-toolbar>
+
+<mat-menu #settingsMenu="matMenu" class="settings-menu" panelClass="settings-menu-panel">
+  <div class="settings-menu-content" (click)="$event.stopPropagation()">
+    <div class="settings-menu-section-title">{{ getLanguageSectionTitle() }}</div>
+    <mat-button-toggle-group
+      [value]="currentLanguage"
+      (change)="changeLanguage($event.value)"
+      [hideSingleSelectionIndicator]="true"
+      aria-label="Вибір мови">
+      <mat-button-toggle *ngFor="let lang of languages" [value]="lang.code" [class.ua-button]="lang.code === 'uk'" [class.en-button]="lang.code === 'en'" [class.ru-button]="lang.code === 'ru'">
+        {{ lang.label }}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <div class="settings-menu-section-title">{{ getThemeSectionTitle() }}</div>
+    <ng-container *ngIf="theme$ | async as currentTheme">
+      <button
+        mat-button
+        type="button"
+        class="theme-button"
+        (click)="toggleTheme()"
+        [attr.aria-label]="getThemeLabel(currentTheme)"
+        [title]="getThemeTitle(currentTheme)">
+        <mat-icon>{{ getThemeIcon(currentTheme) }}</mat-icon>
+      </button>
+    </ng-container>
+  </div>
+</mat-menu>
 

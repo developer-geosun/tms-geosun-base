@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ConfigService } from '../../../core/services/config.service';
 
 /**
  * Компонент логотипу GeoSun
@@ -11,6 +10,5 @@ import { ConfigService } from '../../../core/services/config.service';
   standalone: false
 })
 export class LogoComponent {
-  constructor(public configService: ConfigService) {}
 }
 
