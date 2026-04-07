@@ -22,16 +22,26 @@
   <span class="spacer"></span>
 
   <div class="auth-actions">
-    <button matButton="tonal" type="button" class="auth-button register-button">
-      {{ 'auth.register' | translate }}
+    <button
+      mat-mini-fab
+      type="button"
+      class="auth-button register-button"
+      [attr.aria-label]="'auth.register' | translate"
+      [attr.title]="'auth.register' | translate">
+      <mat-icon fontIcon="person_add" aria-hidden="true"></mat-icon>
     </button>
-    <button matButton="tonal" type="button" class="auth-button login-button">
-      {{ 'auth.login' | translate }}
+    <button
+      mat-mini-fab
+      type="button"
+      class="auth-button login-button"
+      [attr.aria-label]="'auth.login' | translate"
+      [attr.title]="'auth.login' | translate">
+      <mat-icon fontIcon="login" aria-hidden="true"></mat-icon>
     </button>
   </div>
 
   <button
-    mat-icon-button
+    mat-mini-fab
     class="settings-button"
     type="button"
     [matMenuTriggerFor]="settingsMenu"

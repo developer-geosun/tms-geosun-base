@@ -77,20 +77,33 @@ app-social-icon {
 }
 
 .auth-button {
-  --mdc-protected-button-container-shape: 20px;
-  --mdc-protected-button-container-height: 40px;
-  --mdc-protected-button-label-text-size: 14px;
-  --mdc-protected-button-label-text-weight: 500;
+  --mdc-fab-container-shape: 20px;
+  --mdc-fab-small-container-color: var(--mat-sys-secondary-container);
+  --mdc-fab-small-foreground-color: var(--mat-sys-on-secondary-container);
+  color: var(--mat-sys-on-secondary-container);
+  opacity: .94;
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+}
+
+.auth-button mat-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.auth-button:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .18);
 }
 
 .settings-button {
   order: 4;
-  width: 36px;
-  height: 36px;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  opacity: .92;
-  transition: opacity .2s ease;
+  --mdc-fab-container-shape: 20px;
+  --mdc-fab-small-container-color: var(--mat-sys-secondary-container);
+  --mdc-fab-small-foreground-color: var(--mat-sys-on-secondary-container);
+  opacity: .94;
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
 }
 
 .settings-button mat-icon {
@@ -101,6 +114,8 @@ app-social-icon {
 
 .settings-button:hover {
   opacity: 1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .18);
 }
 
 a.company-site-button.mat-mdc-icon-button {
