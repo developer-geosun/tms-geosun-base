@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'services-route-calculation-angular-temp'`, () => {
+  it(`should have as title 'tms-geosun-base'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('services-route-calculation-angular-temp');
+    expect(app.title).toEqual('tms-geosun-base');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('services-route-calculation-angular-temp app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('tms-geosun-base app is running!');
   });
 });

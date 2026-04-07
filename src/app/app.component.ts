@@ -8,7 +8,7 @@ import { LanguageService } from './core/services/language.service';
   standalone: false
 })
 export class AppComponent implements OnInit {
-  title = 'services-route-calculation-angular';
+  title = 'tms-geosun-base';
 
   constructor(private languageService: LanguageService) {}
 

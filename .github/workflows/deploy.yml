@@ -30,7 +30,7 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Build Angular application
-        run: npm run build -- --configuration production --base-href=/service-route-cost-calculation-angular/
+        run: npm run build -- --configuration production --base-href=/tms-geosun-base/
 
       - name: Configure Git
         run: |
@@ -44,14 +44,14 @@ jobs:
           set -e
           
           # Проверяем, что папка dist существует перед переключением веток
-          if [ ! -d "dist/services-route-calculation-angular-temp" ]; then
-            echo "Error: dist/services-route-calculation-angular-temp directory not found"
+          if [ ! -d "dist/tms-geosun-base" ]; then
+            echo "Error: dist/tms-geosun-base directory not found"
             exit 1
           fi
           
           # Сохраняем собранные файлы во временную директорию перед переключением веток
           mkdir -p /tmp/build-output
-          cp -r dist/services-route-calculation-angular-temp/* /tmp/build-output/
+          cp -r dist/tms-geosun-base/* /tmp/build-output/
           
           # Настраиваем remote для push в тот же репозиторий
           git remote set-url origin https://${DEPLOY_TOKEN}@github.com/${{ github.repository }}.git

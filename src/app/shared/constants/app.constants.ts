@@ -8,6 +8,6 @@ export const APP_CONFIG = {
   developerFacebookUrl: 'https://www.facebook.com/hmv.fermats', // URL для Facebook розробника (footer)
   linkedinUrl: 'https://www.linkedin.com/in/maksym-horielikov-738347275/', // URL для LinkedIn розробника
   logoUrl: 'https://www.geosun.net.ua',
-  isServiceStopped: true // Настройка остановки сервиса: при true все страницы редиректят на /stop-service
+  isServiceStopped: false // Настройка остановки сервиса: при true все страницы редиректят на /stop-service
 };
 

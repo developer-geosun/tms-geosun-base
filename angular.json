@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "services-route-calculation-angular-temp": {
+    "tms-geosun-base": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -21,7 +21,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/services-route-calculation-angular-temp",
+            "outputPath": "dist/tms-geosun-base",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -75,14 +75,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "services-route-calculation-angular-temp:build"
+            "buildTarget": "tms-geosun-base:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "services-route-calculation-angular-temp:build:production"
+              "buildTarget": "tms-geosun-base:build:production"
             },
             "development": {
-              "buildTarget": "services-route-calculation-angular-temp:build:development"
+              "buildTarget": "tms-geosun-base:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -90,7 +90,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "services-route-calculation-angular-temp:build"
+            "buildTarget": "tms-geosun-base:build"
           }
         },
         "test": {
