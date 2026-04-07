@@ -32,6 +32,10 @@
     "ukrainian": "Украинский",
     "english": "Английский",
     "russian": "Русский"
+  },
+  "settings": {
+    "languageSection": "Язык",
+    "themeSection": "Тема"
   }
 }
 
