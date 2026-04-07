@@ -17,17 +17,44 @@ mat-toolbar {
 
 .logo-icons-group {
   order: 1;
+  position: relative;
 }
 
 .logo-hover-icons {
-  padding: 6px 4px 6px 4px;
-  margin: -6px -4px -6px -4px;
-  max-width: 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 20;
+  flex-direction: column;
+  padding: 4px;
+  margin: 0;
+  max-height: 0;
   opacity: 0;
+  visibility: hidden;
   overflow: hidden;
   pointer-events: none;
-  transform: translateX(-14px);
-  transition: max-width .35s ease, opacity .25s ease, transform .3s ease;
+  transform: translate(-50%, -10px);
+  transition: max-height .45s cubic-bezier(.2, .8, .2, 1), opacity .35s ease, transform .35s ease, visibility 0s linear .35s;
+}
+
+.logo-hover-icons > * {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .28s ease, transform .28s ease;
+}
+
+.logo-icons-group.is-open .logo-hover-icons {
+  max-height: 260px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+  transition: max-height .45s cubic-bezier(.2, .8, .2, 1), opacity .35s ease, transform .35s ease, visibility 0s linear 0s;
+}
+
+.logo-icons-group.is-open .logo-hover-icons > * {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 app-logo,
@@ -255,10 +282,18 @@ a.company-site-button:active {
 
   .logo-icons-group:hover .logo-hover-icons,
   .logo-icons-group:focus-within .logo-hover-icons {
-    max-width: 260px;
+    max-height: 260px;
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
-    transform: translateX(0);
+    transform: translate(-50%, 0);
+    transition: max-height .45s cubic-bezier(.2, .8, .2, 1), opacity .35s ease, transform .35s ease, visibility 0s linear 0s;
+  }
+
+  .logo-icons-group:hover .logo-hover-icons > *,
+  .logo-icons-group:focus-within .logo-hover-icons > * {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

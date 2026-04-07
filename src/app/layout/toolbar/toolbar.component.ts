@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewEncapsulation } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
@@ -38,6 +38,7 @@ export class ToolbarComponent {
   language$ = this.languageService.language$;
   currentLanguage: Language = 'uk';
   currentTheme: Theme = 'azure-blue';
+  isLogoIconsOpen = false;
   
   // Доступні мови
   languages: { code: Language; label: string }[] = [
@@ -57,7 +58,8 @@ export class ToolbarComponent {
     private themeService: ThemeService,
     public configService: ConfigService,
     private translateService: TranslateService,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private elementRef: ElementRef<HTMLElement>
   ) {
     // Підписуємося на зміни мови
     this.language$.subscribe(lang => {
@@ -81,6 +83,27 @@ export class ToolbarComponent {
    */
   changeLanguage(language: Language): void {
     this.languageService.setLanguage(language);
+  }
+
+  toggleLogoIcons(event: Event): void {
+    event.stopPropagation();
+    this.isLogoIconsOpen = !this.isLogoIconsOpen;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    if (!this.isLogoIconsOpen) {
+      return;
+    }
+
+    const clickedElement = event.target as Node | null;
+    if (!clickedElement) {
+      return;
+    }
+
+    if (!this.elementRef.nativeElement.contains(clickedElement)) {
+      this.isLogoIconsOpen = false;
+    }
   }
 
   /**
