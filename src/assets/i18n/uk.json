@@ -34,6 +34,7 @@
     "russian": "Русский"
   },
   "settings": {
+    "buttonLabel": "Налаштування",
     "languageSection": "Мова",
     "themeSection": "Тема"
   },

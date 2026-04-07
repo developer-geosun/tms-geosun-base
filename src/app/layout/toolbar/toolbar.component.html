@@ -35,8 +35,8 @@
     class="settings-button"
     type="button"
     [matMenuTriggerFor]="settingsMenu"
-    aria-label="Налаштування"
-    title="Налаштування">
+    [attr.aria-label]="'settings.buttonLabel' | translate"
+    [attr.title]="'settings.buttonLabel' | translate">
     <mat-icon fontIcon="settings" aria-hidden="true"></mat-icon>
   </button>
 </mat-toolbar>
