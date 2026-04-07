@@ -1,8 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component, ViewEncapsulation } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslateService } from '@ngx-translate/core';
 import { ThemeService, Theme } from '../../core/services/theme.service';
 import { ConfigService } from '../../core/services/config.service';
 import { LanguageService, Language } from '../../core/services/language.service';
+import { LogoComponent } from '../../shared/components/logo/logo.component';
+import { SocialIconComponent } from '../../shared/components/social-icon/social-icon.component';
 
 /**
  * Компонент панелі інструментів (toolbar)
@@ -12,7 +20,17 @@ import { LanguageService, Language } from '../../core/services/language.service'
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  standalone: false
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatButtonToggleModule,
+    LogoComponent,
+    SocialIconComponent
+  ]
 })
 export class ToolbarComponent {
   // Використовуємо async pipe для автоматичної відписки

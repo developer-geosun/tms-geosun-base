@@ -8,7 +8,7 @@ import { SocialNetworkType } from '../../models/social-network.model';
   selector: 'app-social-icon',
   templateUrl: './social-icon.component.html',
   styleUrls: ['./social-icon.component.scss'],
-  standalone: false,
+  standalone: true,
   host: {
     '[style.--hover-color]': 'hoverColor',
     '[style.--background-color]': 'backgroundColor'

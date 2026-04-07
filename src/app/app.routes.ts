@@ -1,20 +1,13 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { MainComponent } from './pages/main/main.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { StopServiceComponent } from './pages/stop-service/stop-service.component';
 import { ServiceStopGuard } from './core/guards/service-stop.guard';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: 'main', component: MainComponent, canActivate: [ServiceStopGuard] },
   { path: 'stop-service', component: StopServiceComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
