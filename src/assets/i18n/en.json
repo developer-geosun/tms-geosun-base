@@ -36,6 +36,10 @@
   "settings": {
     "languageSection": "Language",
     "themeSection": "Theme"
+  },
+  "auth": {
+    "register": "Sign up",
+    "login": "Sign in"
   }
 }
 

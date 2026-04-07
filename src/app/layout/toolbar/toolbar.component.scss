@@ -69,14 +69,28 @@ app-social-icon {
   order: 2;
 }
 
-.settings-button {
+.auth-actions {
   order: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.auth-button {
+  --mdc-protected-button-container-shape: 20px;
+  --mdc-protected-button-container-height: 40px;
+  --mdc-protected-button-label-text-size: 14px;
+  --mdc-protected-button-label-text-weight: 500;
+}
+
+.settings-button {
+  order: 4;
   width: 36px;
   height: 36px;
   border: 1px solid currentColor;
   border-radius: 50%;
   opacity: .92;
-  transition: transform .2s ease, opacity .2s ease;
+  transition: opacity .2s ease;
 }
 
 .settings-button mat-icon {
@@ -86,7 +100,6 @@ app-social-icon {
 }
 
 .settings-button:hover {
-  transform: rotate(20deg);
   opacity: 1;
 }
 
@@ -254,6 +267,18 @@ a.company-site-button:active {
     flex-wrap: nowrap;
     gap: 8px;
     min-height: 64px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .auth-actions {
+    width: 100%;
+    justify-content: flex-end;
+    order: 4;
+  }
+
+  .settings-button {
+    order: 5;
   }
 }
 

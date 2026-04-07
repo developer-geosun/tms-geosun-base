@@ -36,6 +36,10 @@
   "settings": {
     "languageSection": "Язык",
     "themeSection": "Тема"
+  },
+  "auth": {
+    "register": "Регистрация",
+    "login": "Войти"
   }
 }
 

@@ -1,54 +1,41 @@
 @use '@angular/material' as mat;
 
-// Використовуємо M2 API з префіксом m2- для Angular Material
-
+// Теми Angular Material 3 (M3)
 // Базова тема за замовчуванням: Azure & Blue
-$azure-blue-primary: mat.m2-define-palette(mat.$m2-light-blue-palette);
-$azure-blue-accent: mat.m2-define-palette(mat.$m2-blue-palette, A200, A100, A400);
-$azure-blue-warn: mat.m2-define-palette(mat.$m2-red-palette);
-$azure-blue-theme: mat.m2-define-light-theme((
+$azure-blue-theme: mat.define-theme((
   color: (
-    primary: $azure-blue-primary,
-    accent: $azure-blue-accent,
-    warn: $azure-blue-warn,
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$blue-palette
   )
 ));
 
 @include mat.all-component-themes($azure-blue-theme);
 
 // Rose & Red
-$rose-red-primary: mat.m2-define-palette(mat.$m2-pink-palette, 800, 300, 900);
-$rose-red-accent: mat.m2-define-palette(mat.$m2-red-palette, 200, 100, 400);
-$rose-red-warn: mat.m2-define-palette(mat.$m2-deep-orange-palette);
-$rose-red-theme: mat.m2-define-light-theme((
+$rose-red-theme: mat.define-theme((
   color: (
-    primary: $rose-red-primary,
-    accent: $rose-red-accent,
-    warn: $rose-red-warn,
+    theme-type: light,
+    primary: mat.$rose-palette,
+    tertiary: mat.$red-palette
   )
 ));
 
 // Magenta & Violet
-$magenta-violet-primary: mat.m2-define-palette(mat.$m2-purple-palette);
-$magenta-violet-accent: mat.m2-define-palette(mat.$m2-deep-purple-palette, A200, A100, A400);
-$magenta-violet-warn: mat.m2-define-palette(mat.$m2-red-palette);
-$magenta-violet-theme: mat.m2-define-dark-theme((
+$magenta-violet-theme: mat.define-theme((
   color: (
-    primary: $magenta-violet-primary,
-    accent: $magenta-violet-accent,
-    warn: $magenta-violet-warn,
+    theme-type: dark,
+    primary: mat.$magenta-palette,
+    tertiary: mat.$violet-palette
   )
 ));
 
 // Cyan & Orange
-$cyan-orange-primary: mat.m2-define-palette(mat.$m2-cyan-palette);
-$cyan-orange-accent: mat.m2-define-palette(mat.$m2-orange-palette, A200, A100, A400);
-$cyan-orange-warn: mat.m2-define-palette(mat.$m2-deep-orange-palette);
-$cyan-orange-theme: mat.m2-define-dark-theme((
+$cyan-orange-theme: mat.define-theme((
   color: (
-    primary: $cyan-orange-primary,
-    accent: $cyan-orange-accent,
-    warn: $cyan-orange-warn,
+    theme-type: dark,
+    primary: mat.$cyan-palette,
+    tertiary: mat.$orange-palette
   )
 ));
 

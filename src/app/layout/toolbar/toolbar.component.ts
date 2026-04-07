@@ -5,7 +5,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ThemeService, Theme } from '../../core/services/theme.service';
 import { ConfigService } from '../../core/services/config.service';
 import { LanguageService, Language } from '../../core/services/language.service';
@@ -28,6 +28,7 @@ import { SocialIconComponent } from '../../shared/components/social-icon/social-
     MatButtonModule,
     MatMenuModule,
     MatButtonToggleModule,
+    TranslateModule,
     LogoComponent,
     SocialIconComponent
   ]
