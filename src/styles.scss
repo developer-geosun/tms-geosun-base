@@ -202,3 +202,27 @@ mat-button-toggle .mdc-button__label {
   text-align: center !important;
   line-height: normal !important;
 }
+
+.theme-preview--rose-red {
+  --preview-bg: #ffffff;
+  --preview-top: #f2d8e2;
+  --preview-bottom: #e9c4d3;
+}
+
+.theme-preview--azure-blue {
+  --preview-bg: #ffffff;
+  --preview-top: #d8e2f4;
+  --preview-bottom: #bdd0ee;
+}
+
+.theme-preview--magenta-violet {
+  --preview-bg: #150f17;
+  --preview-top: #9700aa;
+  --preview-bottom: #8d049d;
+}
+
+.theme-preview--cyan-orange {
+  --preview-bg: #081217;
+  --preview-top: #0a6a6c;
+  --preview-bottom: #04575a;
+}

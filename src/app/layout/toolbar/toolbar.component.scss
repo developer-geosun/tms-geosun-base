@@ -30,11 +30,10 @@ mat-toolbar {
   margin: 0;
   max-height: 0;
   opacity: 0;
-  visibility: hidden;
   overflow: hidden;
   pointer-events: none;
   transform: translate(-50%, -10px);
-  transition: max-height .45s cubic-bezier(.2, .8, .2, 1), opacity .35s ease, transform .35s ease, visibility 0s linear .35s;
+  transition: max-height .45s cubic-bezier(.2, .8, .2, 1), opacity .35s ease, transform .35s ease;
 }
 
 .logo-hover-icons > * {
@@ -43,16 +42,18 @@ mat-toolbar {
   transition: opacity .28s ease, transform .28s ease;
 }
 
-.logo-icons-group.is-open .logo-hover-icons {
+.logo-icons-group.is-open .logo-hover-icons,
+.logo-icons-group:hover .logo-hover-icons,
+.logo-icons-group:focus-within .logo-hover-icons {
   max-height: 260px;
   opacity: 1;
-  visibility: visible;
   pointer-events: auto;
   transform: translate(-50%, 0);
-  transition: max-height .45s cubic-bezier(.2, .8, .2, 1), opacity .35s ease, transform .35s ease, visibility 0s linear 0s;
 }
 
-.logo-icons-group.is-open .logo-hover-icons > * {
+.logo-icons-group.is-open .logo-hover-icons > *,
+.logo-icons-group:hover .logo-hover-icons > *,
+.logo-icons-group:focus-within .logo-hover-icons > * {
   opacity: 1;
   transform: translateY(0);
 }
@@ -60,7 +61,6 @@ mat-toolbar {
 app-logo,
 app-social-icon {
   flex-shrink: 0;
-  margin: 0;
 }
 
 .spacer {
@@ -99,10 +99,10 @@ a.company-site-button.mat-mdc-icon-button {
   align-items: center !important;
   justify-content: center !important;
   padding: 0 !important;
-  margin: 0;
   border-radius: 50%;
-  background: var(--background-color, #f8f9fa);
-  color: #495057;
+  background: var(--background-color, #e8edf2);
+  color: #3d4752;
+  border: 1px solid rgba(61, 71, 82, .25);
   text-decoration: none;
   transition: all .25s cubic-bezier(.4, 0, .2, 1);
 }
@@ -249,51 +249,11 @@ a.company-site-button:active {
   background-color: var(--preview-bottom, #c7c7c7);
 }
 
-.theme-preview--rose-red {
-  --preview-bg: #ffffff;
-  --preview-top: #f2d8e2;
-  --preview-bottom: #e9c4d3;
-}
-
-.theme-preview--azure-blue {
-  --preview-bg: #ffffff;
-  --preview-top: #d8e2f4;
-  --preview-bottom: #bdd0ee;
-}
-
-.theme-preview--magenta-violet {
-  --preview-bg: #150f17;
-  --preview-top: #9700aa;
-  --preview-bottom: #8d049d;
-}
-
-.theme-preview--cyan-orange {
-  --preview-bg: #081217;
-  --preview-top: #0a6a6c;
-  --preview-bottom: #04575a;
-}
-
 @media (min-width: 600px) {
   mat-toolbar {
     flex-wrap: nowrap;
     gap: 8px;
     min-height: 64px !important;
-  }
-
-  .logo-icons-group:hover .logo-hover-icons,
-  .logo-icons-group:focus-within .logo-hover-icons {
-    max-height: 260px;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translate(-50%, 0);
-    transition: max-height .45s cubic-bezier(.2, .8, .2, 1), opacity .35s ease, transform .35s ease, visibility 0s linear 0s;
-  }
-
-  .logo-icons-group:hover .logo-hover-icons > *,
-  .logo-icons-group:focus-within .logo-hover-icons > * {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 

@@ -8,8 +8,9 @@
   min-height: 28px;
   flex-shrink: 0;
   border-radius: 50%;
-  background-color: var(--background-color, #f8f9fa);
-  color: #495057;
+  background-color: var(--background-color, #e8edf2);
+  color: #3d4752;
+  border: 1px solid rgba(61, 71, 82, 0.25);
   text-decoration: none;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
